@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="Yeh Diwali Hai Deewani"><meta property="og:description" content="Shivani's Diwali Party · Sat 7 Nov, 12:30 pm onwards · Balaji Enclave, 8 Sunny Park. Open the curtains to enter.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Yeh Diwali Hai Deewani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Shrikhand&family=Yatra+One&family=Mukta:wght@400;600;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a sun-blasted Bollywood poster. Marigold curtains part onto a bulb-lit marquee; loud yellow/orange bands stack below like reels. Single committed bright look. */
+:root{
+  --sun:#F7B71D; --sun-2:#FFD86B; --orange:#EE7A12; --orange-deep:#C25806; --pink:#D6246E; --pink-deep:#9C1450;
+  --maroon:#3A0D22; --cream:#FFF5E1; --white:#FFFFFF; --leaf:#1E7F5C;
+  --logo:"Shrikhand","Rozha One",Georgia,serif;
+  --display:"Rozha One","Yatra One",Georgia,serif;
+  --deva:"Yatra One","Rozha One",serif;
+  --body:"Mukta",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--sun);color:var(--maroon)}
+body{font-family:var(--body);font-size:17px;line-height:1.5;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:620px;margin:0 auto}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+h2{font-family:var(--display);font-size:clamp(34px,9vw,48px);line-height:1;margin:.1em 0 .25em;text-wrap:balance}
+.sub{margin:0 0 20px;font-size:18px}
+
+/* ---------- Curtains ---------- */
+#gate{position:fixed;inset:0;z-index:60;display:flex;background:var(--maroon)}
+.curtain{flex:1;transition:transform 1.4s cubic-bezier(.65,0,.35,1);
+  background:repeating-linear-gradient(90deg,#E8701A 0 18px,#B9500B 18px 30px,#F08328 30px 46px,#C95E10 46px 58px);
+  box-shadow:inset 0 -60px 80px rgba(120,20,0,.35)}
+.curtain.l{border-right:4px solid var(--sun)} .curtain.r{border-left:4px solid var(--sun)}
+.valance{position:absolute;top:0;left:0;right:0;height:60px;z-index:3;
+  background:radial-gradient(circle at 20px 0,var(--pink) 26px,transparent 27px) 0 0/40px 60px repeat-x;
+  border-top:12px solid var(--sun);transition:transform 1.4s cubic-bezier(.65,0,.35,1)}
+.toran{position:absolute;top:44px;left:0;right:0;height:28px;z-index:3;transition:transform 1.4s cubic-bezier(.65,0,.35,1);
+  background:radial-gradient(circle at 12px 10px,var(--sun) 8px,transparent 9px) 0 0/24px 28px repeat-x}
+#gate.open .curtain.l{transform:translateX(-102%)} #gate.open .curtain.r{transform:translateX(102%)}
+#gate.open .valance,#gate.open .toran{transform:translateY(-140%)}
+#gate.open{pointer-events:none;background:transparent} #gate.gone{display:none}
+.gatecard{position:absolute;inset:0;z-index:4;display:grid;place-items:center;text-align:center;transition:opacity .5s;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+#gate.open .gatecard{opacity:0}
+.playbtn{margin-top:16px;width:100%;background:var(--pink);color:var(--white);border:0;padding:14px;font-weight:800;font-size:19px;letter-spacing:.03em;box-shadow:0 5px 0 var(--pink-deep)}
+.playbtn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--pink-deep)}
+
+/* ---------- Logo lockup ---------- */
+.logo{display:flex;flex-direction:column;align-items:center;line-height:.95;margin:10px auto 6px;font-family:var(--logo);text-align:center;gap:2px}
+.logo .l-yeh{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--maroon);background:var(--sun-2);padding:5px 10px 5px 16px;border:2px solid var(--maroon);margin-bottom:8px}
+.logo .l-hai{font-size:clamp(24px,6.5vw,34px);color:var(--white);text-shadow:0 3px 0 var(--maroon);margin:-4px 0 -2px}
+.logo .l-big{font-size:clamp(58px,17vw,100px);color:var(--sun-2);-webkit-text-stroke:2px var(--maroon);paint-order:stroke fill;text-shadow:0 5px 0 var(--maroon)}
+.logo .l-dev{font-family:var(--deva);font-size:19px;color:var(--maroon);margin-top:10px}
+.gatecard .logo .l-dev{color:var(--sun-2)}
+.gatelogo{display:grid;justify-items:center;gap:20px;max-width:360px;width:100%}
+
+/* ---------- Hero poster ---------- */
+.hero{padding-block:26px 36px;background:
+  radial-gradient(ellipse at 50% 35%,#FFE7A3 0%,#FBCB4A 38%,var(--sun) 70%)}
+.marquee{position:relative;padding:16px;background:var(--maroon)}
+.bulbs{position:absolute;inset:0;pointer-events:none;z-index:2}
+.bulb{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#7A4A2A;animation:chase .9s linear infinite}
+@keyframes chase{0%,33%{background:#FFF7C2;box-shadow:0 0 8px 3px rgba(255,220,90,.85)}33.01%,100%{background:#8A5A30;box-shadow:none}}
+.poster{position:relative;background:var(--orange);padding:28px 18px 24px;text-align:center;overflow:hidden;color:var(--white);isolation:isolate}
+.poster::before{content:"";position:absolute;left:50%;top:210px;width:900px;height:900px;margin:-450px 0 0 -450px;z-index:0;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg,rgba(255,231,163,.30) 0 7deg,transparent 7deg 15deg);
+  -webkit-mask:radial-gradient(circle,#000 0,#000 30%,transparent 62%);mask:radial-gradient(circle,#000 0,#000 30%,transparent 62%);
+  animation:rays 60s linear infinite}
+.poster::after{content:"";position:absolute;left:50%;top:210px;width:340px;height:340px;margin:-170px 0 0 -170px;z-index:0;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,240,190,.55),transparent 65%);animation:glow 1s steps(1) infinite}
+.poster>*{position:relative;z-index:1}
+@keyframes rays{to{transform:rotate(360deg)}}
+@keyframes glow{50%{opacity:.55}}
+.nowshowing{display:inline-block;background:var(--maroon);color:var(--sun);padding:4px 12px}
+.presents{font-family:var(--mono);font-size:12px;letter-spacing:.18em;margin-top:14px;text-transform:uppercase;color:var(--maroon);font-weight:600}
+.t-dev{font-family:var(--deva);font-size:clamp(46px,14vw,86px);line-height:1;margin:6px 0 0;color:var(--sun-2);text-shadow:4px 4px 0 var(--maroon),-1px -1px 0 var(--maroon)}
+.t-en{font-family:var(--display);font-size:clamp(28px,8vw,46px);line-height:.95;text-transform:uppercase;margin:8px 0 0;color:var(--white);text-shadow:3px 3px 0 var(--pink-deep)}
+.tagline{font-family:var(--deva);font-size:22px;margin:12px 0 0;color:var(--maroon)}
+.sticker{position:absolute;display:grid;place-items:center;text-align:center;font-family:var(--display);line-height:1;color:var(--maroon);
+  clip-path:polygon(50% 0,61% 13%,78% 6%,80% 23%,97% 25%,89% 40%,100% 52%,87% 62%,93% 79%,76% 79%,70% 96%,56% 87%,41% 99%,33% 84%,16% 90%,16% 72%,0 64%,10% 50%,2% 34%,18% 29%,20% 11%,37% 15%)}
+.s1{width:94px;height:94px;background:var(--sun-2);top:8px;right:-6px;transform:rotate(14deg);font-size:15px}
+.s2{width:86px;height:86px;background:var(--pink);color:var(--white);top:70px;left:-10px;transform:rotate(-12deg);font-size:15px;z-index:2}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:20px;position:relative;z-index:1}
+.fact{background:var(--maroon);color:var(--white);padding:10px 8px;min-width:0}
+.fact .label{color:var(--sun);font-size:10px}
+.fact b{display:block;font-size:17px;line-height:1.2;margin-top:2px}
+.fact.wide{grid-column:1/-1;background:var(--cream);color:var(--maroon)}
+.fact.wide .label{color:var(--orange-deep)}
+.countdown{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.cd{background:var(--white);color:var(--maroon);min-width:68px;padding:8px 4px 6px;transform:rotate(-2deg);border:3px solid var(--maroon)}
+.cd:nth-child(even){transform:rotate(2deg);background:var(--pink);color:var(--white)}
+.cd b{display:block;font-family:var(--display);font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
+.cd span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+/* ---------- Quiz ---------- */
+.band-orange{background:var(--orange);color:var(--white);padding-block:42px;
+  background-image:radial-gradient(circle at 8% 12%,rgba(255,225,92,.45) 0 70px,transparent 71px),radial-gradient(circle at 94% 90%,rgba(240,24,127,.35) 0 90px,transparent 91px)}
+.band-orange .label{color:var(--sun-2)}
+.quiz{background:var(--cream);color:var(--maroon);padding:22px;border:4px solid var(--maroon);box-shadow:8px 8px 0 var(--maroon)}
+.progress{display:flex;gap:4px;margin-bottom:14px}
+.progress i{flex:1;height:8px;background:rgba(74,11,30,.12)}
+.progress i.on{background:var(--pink)}
+.q{font-family:var(--display);font-size:25px;line-height:1.15;margin:6px 0 16px;text-wrap:balance}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;background:var(--white);border:2px solid var(--maroon);padding:12px 14px;color:var(--maroon);font-size:16px;box-shadow:3px 3px 0 var(--sun)}
+.opt:hover{background:var(--sun-2)}
+.opt:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--sun)}
+.bigbtn{display:inline-block;background:var(--pink);color:var(--white);border:0;padding:14px 24px;font-weight:800;font-size:17px;box-shadow:0 4px 0 var(--pink-deep);text-decoration:none}
+.ghost{background:transparent;border:2px solid currentColor;color:inherit;padding:11px 16px;font-weight:600}
+.result{text-align:center}
+.badge{color:var(--white);padding:20px 14px;border:4px solid var(--maroon);position:relative}
+.badge .big{font-family:var(--display);font-size:clamp(46px,13vw,70px);line-height:1;text-shadow:3px 3px 0 rgba(0,0,0,.25)}
+.badge .dev{font-family:var(--deva);font-size:24px;color:var(--sun-2)}
+.vibe{font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-top:8px;color:var(--cream)}
+.line{font-size:18px;max-width:44ch;margin:14px auto}
+.song{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;background:var(--maroon);color:var(--white);padding:12px}
+.song a{color:var(--sun);font-weight:800;text-decoration:none;border-bottom:2px solid var(--sun)}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.note{font-size:15px;opacity:.9}
+.copybox{font-family:var(--mono);font-size:13px;background:var(--white);color:var(--maroon);border:2px dashed var(--maroon);padding:10px;white-space:pre-wrap;word-break:break-word;user-select:all;margin:10px 0}
+
+/* ---------- Playlist ---------- */
+.band-sun{background:var(--sun);padding-block:42px}
+.band-sun .label{color:var(--pink-deep)}
+.cassette{background:var(--maroon);color:var(--white);border:4px solid var(--maroon);padding:18px;box-shadow:8px 8px 0 var(--orange);display:grid;gap:14px}
+.tape{background:var(--sun-2);color:var(--maroon);padding:14px;display:flex;align-items:center;gap:14px}
+.reel{flex:none;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle,var(--maroon) 6px,var(--white) 7px,var(--white) 12px,var(--maroon) 13px,var(--maroon) 23px);animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tape .meta{min-width:0;flex:1;text-align:center}
+.tape b{display:block;font-family:var(--display);font-size:24px;line-height:1.05}
+.tape span{font-family:var(--mono);font-size:11px;letter-spacing:.12em}
+
+/* ---------- RSVP ---------- */
+.band-pink{background:var(--pink);color:var(--white);padding-block:42px}
+.band-pink .label{color:var(--sun-2)}
+.ticket{background:var(--cream);color:var(--maroon);border:4px solid var(--maroon);display:grid;grid-template-columns:minmax(0,1fr) auto;box-shadow:8px 8px 0 var(--maroon)}
+.ticket .main{padding:20px;min-width:0}
+.stub{writing-mode:vertical-rl;transform:rotate(180deg);padding:14px 10px;border-left:3px dashed var(--maroon);font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-align:center;background:var(--sun);font-weight:600}
+form{display:grid;gap:16px}
+.field{display:grid;gap:6px}
+.field label,legend{font-weight:800}
+input[type=text]{font:inherit;padding:12px;border:3px solid var(--maroon);background:var(--white);color:var(--maroon);width:100%}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:6px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{background:var(--white);border:2px solid var(--maroon);padding:8px 14px;font-weight:600;cursor:pointer}
+.seg input:checked+label{background:var(--orange);color:var(--white)}
+.seg input:focus-visible+label{outline:3px solid var(--pink);outline-offset:2px}
+.pill{display:inline-block;padding:2px 10px;color:var(--white);font-weight:800;font-size:14px}
+.err{color:var(--pink-deep);font-weight:800}
+.done h3{font-family:var(--display);font-size:28px;margin:0 0 6px;line-height:1.05}
+
+/* ---------- Cast wall + credits ---------- */
+.band-cream{background:var(--cream);padding-block:42px}
+.band-cream .label{color:var(--orange-deep)}
+.tally{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.tally div{padding:10px 6px;text-align:center;color:var(--white);border:3px solid var(--maroon)}
+.tally b{display:block;font-family:var(--display);font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.tally span{font-size:13px;font-weight:600}
+.guests{display:flex;flex-wrap:wrap;gap:8px}
+.guest{background:var(--white);color:var(--maroon);border:2px solid var(--maroon);padding:6px 10px;display:flex;gap:6px;align-items:center;font-weight:600}
+.guest i{width:10px;height:10px;display:inline-block}
+.empty{margin:0;font-weight:600}
+.credits{text-align:center;padding-block:42px 80px;background:var(--maroon);color:var(--white)}
+.credits dl{display:grid;gap:12px;margin:18px 0}
+.credits dt{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--sun);text-transform:uppercase}
+.credits dd{margin:0;font-family:var(--display);font-size:22px}
+.credits .deva{font-family:var(--deva);font-size:32px;color:var(--orange)}
+
+/* ---------- Music control ---------- */
+.music{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;
+  display:flex;align-items:center;gap:8px;background:var(--sun-2);color:var(--maroon);border:3px solid var(--maroon);padding:8px 12px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;box-shadow:4px 4px 0 var(--pink);text-decoration:none}
+.eq{display:flex;gap:2px;align-items:flex-end;height:14px}
+.eq i{width:3px;background:var(--maroon);height:4px}
+.music.on .eq i{animation:eq .6s ease-in-out infinite alternate}
+.music.on .eq i:nth-child(2){animation-delay:.15s}.music.on .eq i:nth-child(3){animation-delay:.3s}
+@keyframes eq{to{height:14px}}
+
+.cal{border-top:3px dashed var(--maroon);padding:16px 20px 20px;display:grid;gap:10px;justify-items:center;background:var(--sun-2)}
+.cal .label{color:var(--maroon)}
+.calbtns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.calbtn{background:var(--white);color:var(--maroon);border:3px solid var(--maroon);padding:10px 16px;font-weight:800;text-decoration:none;box-shadow:0 3px 0 var(--maroon)}
+.calbtn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--maroon)}
+/* ---------- Alignment pass: one centred axis, even shadows ---------- */
+section .inner{text-align:center}
+section .sub{margin-left:auto;margin-right:auto;max-width:40ch}
+.band-orange{background-image:none}
+.quiz,.cassette,.ticket{box-shadow:0 8px 0 var(--maroon)}
+.cassette{box-shadow:0 8px 0 var(--orange-deep)}
+.opt{box-shadow:0 3px 0 var(--sun)}
+.opt:active{transform:translateY(2px);box-shadow:0 1px 0 var(--sun)}
+.startq{display:grid;justify-items:center;gap:14px;padding-block:8px}
+.cd,.cd:nth-child(even){transform:none}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:380px;margin-left:auto;margin-right:auto}
+.cd{min-width:0;text-align:center}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;max-width:380px}
+.seg label{padding:8px 6px;text-align:center}
+.special{display:inline-block;margin-top:14px;background:var(--sun-2);color:var(--maroon);font-family:var(--display);font-size:18px;padding:4px 14px;border:3px solid var(--maroon)}
+.ticket{display:block}
+.strip{background:var(--sun);border-bottom:3px dashed var(--maroon);font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:10px}
+.ticket .main{padding:22px 20px}
+form{justify-items:center}
+.field,fieldset{width:100%;justify-items:center}
+.field label,legend{text-align:center;width:100%}
+input[type=text]{text-align:center}
+.seg{justify-content:center}
+.done{text-align:center}
+.done .row{justify-content:center!important}
+.tape{gap:10px}
+.tape b{font-size:21px}
+.guests{justify-content:center}
+
+@media (max-width:420px){.cd{min-width:60px}.cd b{font-size:26px}.tally{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.poster::before,.poster::after{animation:none}.curtain,.valance,.toran{transition:none}.bulb,.music.on .eq i,.reel{animation:none}}
+</style>
+</head><body>
+
+
+<div id="gate" role="dialog" aria-label="Invitation cover">
+  <div class="valance" aria-hidden="true"></div>
+  <div class="toran" aria-hidden="true"></div>
+  <div class="curtain l" aria-hidden="true"></div>
+  <div class="curtain r" aria-hidden="true"></div>
+  <div class="gatecard"><div class="gatelogo">
+    <div class="logo" aria-label="Yeh Diwali Hai Deewani"><span class="l-yeh">Yeh</span><span class="l-big">Diwali</span><span class="l-hai">hai</span><span class="l-big">Deewani</span></div>
+    <button class="playbtn" id="openBtn">▶ Picture shuru karo</button>
+    <p style="margin:0;font-size:13px;color:var(--sun-2);font-weight:600">Sound on, volume up 🔊</p>
+  </div></div>
+</div>
+
+<audio id="song" src="song.mp3" loop preload="auto" playsinline></audio>
+
+<header class="hero wrap"><div class="inner">
+  <div class="marquee" id="marquee"><div class="bulbs" id="bulbs" aria-hidden="true"></div><div class="poster">
+    <span class="label nowshowing">Now showing · one day only</span>
+    <div class="presents">Shivsbee presents</div>
+    <h1 class="logo"><span class="l-yeh">Yeh</span><span class="l-big">Diwali</span><span class="l-hai">hai</span><span class="l-big">Deewani</span><span class="l-dev">ये दिवाली है दीवानी</span></h1>
+    <div class="facts">
+      <div class="fact"><span class="label">Show date</span><b>Sat, 7th Nov</b></div>
+      <div class="fact"><span class="label">Showtime</span><b>12:30 pm onwards</b></div>
+      <div class="fact wide"><span class="label">Theatre</span><b>Balaji Enclave, 8 Sunny Park · Terrace</b></div>
+    </div>
+    <div class="special">✦ Chhoti Diwali Special ✦</div>
+  </div></div>
+  <div class="countdown" aria-label="Countdown to the lunch">
+    <div class="cd"><b id="cdD">--</b><span>days</span></div>
+    <div class="cd"><b id="cdH">--</b><span>hours</span></div>
+    <div class="cd"><b id="cdM">--</b><span>mins</span></div>
+    <div class="cd"><b id="cdS">--</b><span>secs</span></div>
+  </div>
+</div></header>
+
+<section class="band-orange wrap"><div class="inner">
+  <div class="label">Pre-party homework</div>
+  <h2>Which patakha are you?</h2>
+  <p class="sub">This one's for the games! Six quick questions reveal your patakha and your entry song. When you confirm below, you'll be placed in one of four equal teams for the afternoon's games.</p>
+  <div class="quiz" id="quiz" aria-live="polite"></div>
+</div></section>
+
+
+<section class="band-pink wrap" id="rsvpSec"><div class="inner">
+  <div class="label">Confirm your presence</div>
+  <h2>JOIN IN!!!</h2>
+  <p class="sub">Come looking like the patakha you are!!</p>
+  <div class="ticket">
+    <div class="strip">Admit one · Balaji Enclave · Terrace</div>
+    <div class="main" id="rsvpBox">
+      <form id="rsvp" novalidate>
+        <div class="field"><label for="gname">Your name</label><input type="text" id="gname" autocomplete="name" placeholder="Jaise ghar pe bulate hain" required></div>
+        <fieldset><legend>Coming?</legend><div class="seg">
+          <input type="radio" name="status" id="s1" value="yes" checked><label for="s1">Pakka!</label>
+          <input type="radio" name="status" id="s2" value="maybe"><label for="s2">Shayad</label>
+          <input type="radio" name="status" id="s3" value="no"><label for="s3">Agli baar</label>
+        </div></fieldset>
+        <div id="patakhaLine" class="note">Take the quiz above first so we know your patakha.</div>
+        <div id="formErr" class="err" hidden></div>
+        <div><button class="bigbtn" type="submit" id="rsvpBtn">Confirm my choice</button></div>
+      </form>
+    </div>
+    <div class="cal">
+      <div class="label">Save the date</div>
+      <div class="calbtns">
+        <a class="calbtn" id="gcal" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Shivani%27s%20Diwali%20Party&amp;dates=20261107T070000Z%2F20261107T103000Z&amp;ctz=Asia%2FKolkata&amp;location=Balaji%20Enclave%2C%208%20Sunny%20Park&amp;details=Yeh%20Diwali%20Hai%20Deewani%20%E2%80%94%20Chhoti%20Diwali%20lunch%20on%20the%20terrace.%20Come%20looking%20like%20the%20patakha%20you%20are!">＋ Google Calendar</a>
+        <a class="calbtn" id="ical" hidden download="shivanis-diwali-party.ics" href="#">＋ Apple Calendar</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+
+
+<section class="band-sun wrap"><div class="inner">
+  <div class="label">The official soundtrack</div>
+  <h2>Indian School of Bollywood</h2>
+  <p class="sub">Shivsbee's playlist for the afternoon. Hit play and get in the mood.</p>
+  <div class="cassette">
+    <div class="tape"><span class="reel" aria-hidden="true"></span><div class="meta"><b>Indian School of Bollywood</b><span>NO SKIPS</span></div><span class="reel" aria-hidden="true"></span></div>
+    <a class="bigbtn" style="text-align:center" href="https://youtube.com/playlist?list=PLGW7kVryHqnUeJqXJMTquKVTytuguaJLQ" target="_blank" rel="noopener">▶ Play the playlist on YouTube</a>
+  </div>
+</div></section>
+
+<footer class="credits wrap"><div class="inner">
+  <div class="label" style="color:var(--sun)">End credits</div>
+  <dl>
+    <div><dt>Starring</dt><dd>Some REALLYYY cool people</dd></div>
+    <div><dt>Directed by</dt><dd>Shivani Bagaria</dd></div>
+    <div><dt>Location</dt><dd>8, Sunny Park, Terrace</dd></div>
+    <div><dt>Release</dt><dd>Chhoti Diwali · Sat 7 Nov · 12:30 pm</dd></div>
+  </dl>
+  <div class="deva">शुभ दीपावली</div>
+</div></footer>
+
+<button class="music" id="musicBtn" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="musicTxt">Music: off</span></button>
+
+<script>window.YDHD_SUPA={url:"https://bjoezpgycugchrjpzwpx.supabase.co",key:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqb2V6cGd5Y3VnY2hyanB6d3B4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2MDMzMjYsImV4cCI6MjEwNjE3OTMyNn0.AWcRhJ1b02hgvt6_UM6F8AC-ItoRWCTCP0s7nMUDgGE"};</script>
+<script>
+(function(){
+  "use strict";
+  // ================= Background song =================
+  const song=document.getElementById("song"), musicBtn=document.getElementById("musicBtn"), musicTxt=document.getElementById("musicTxt");
+  song.volume=0.85;
+  function sync(){ const on=!song.paused; musicBtn.classList.toggle("on",on); musicTxt.textContent="Music: "+(on?"on":"off"); musicBtn.setAttribute("aria-pressed",String(on)); }
+  function startSong(){ const pr=song.play(); if(pr&&pr.catch) pr.catch(()=>{}); }
+  function stopSong(){ song.pause(); }
+  song.addEventListener("play",sync); song.addEventListener("pause",sync);
+  musicBtn.addEventListener("click",()=>{ song.paused?startSong():stopSong(); });
+  let wasOn=false;
+  document.addEventListener("visibilitychange",()=>{ if(document.hidden){ wasOn=!song.paused; stopSong(); } else if(wasOn){ startSong(); } });
+
+  // ================= Apple / phone calendar (.ics) =================
+  if(!(window.claude&&window.claude.use)){
+    const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Shivsbee//Diwali//EN","BEGIN:VEVENT","UID:shivani-diwali-2026@shivsbee",
+      "DTSTAMP:20261025T000000Z","DTSTART:20261107T070000Z","DTEND:20261107T103000Z","SUMMARY:Shivani's Diwali Party",
+      "LOCATION:Balaji Enclave\\, 8 Sunny Park","DESCRIPTION:Yeh Diwali Hai Deewani. Chhoti Diwali lunch on the terrace.","END:VEVENT","END:VCALENDAR"].join("\r\n");
+    const ic=document.getElementById("ical"); ic.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics); ic.hidden=false;
+  }
+
+  // ================= Curtains =================
+  const gate=document.getElementById("gate");
+  document.getElementById("openBtn").addEventListener("click",()=>{
+    startSong(); gate.classList.add("open");
+    const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setTimeout(()=>gate.classList.add("gone"),reduce?60:1450);
+  });
+
+  // ================= Marquee chase lights (clockwise loop) =================
+  (function(){
+    const box=document.getElementById("marquee"), holder=document.getElementById("bulbs"), T=0.9, INSET=8, GAP=22;
+    function lay(){
+      const w=box.clientWidth, h=box.clientHeight; if(!w||!h) return;
+      const W=w-2*INSET, H=h-2*INSET, per=2*(W+H);
+      let n=Math.round(per/GAP); n-=n%3; if(n<6) n=6;
+      const step=per/n; let html="";
+      for(let i=0;i<n;i++){
+        let d=i*step, x, y;
+        if(d<W){ x=d; y=0; } else if((d-=W)<H){ x=W; y=d; } else if((d-=H)<W){ x=W-d; y=H; } else { d-=W; x=0; y=H-d; }
+        const delay=((i%3)*T/3 - T).toFixed(3);
+        html+='<span class="bulb" style="left:'+(x+INSET).toFixed(1)+'px;top:'+(y+INSET).toFixed(1)+'px;animation-delay:'+delay+'s"></span>';
+      }
+      holder.innerHTML=html;
+    }
+    lay(); window.addEventListener("resize",lay);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(lay);
+    if(window.ResizeObserver) new ResizeObserver(lay).observe(box);
+  })();
+
+  // ================= Countdown =================
+  const target=Date.parse("2026-11-07T12:30:00+05:30");
+  const E={d:cdD,h:cdH,m:cdM,s:cdS};
+  function tick(){ const s=Math.floor(Math.max(0,target-Date.now())/1000);
+    E.d.textContent=Math.floor(s/86400); E.h.textContent=String(Math.floor(s%86400/3600)).padStart(2,"0");
+    E.m.textContent=String(Math.floor(s%3600/60)).padStart(2,"0"); E.s.textContent=String(s%60).padStart(2,"0"); }
+  tick(); setInterval(tick,1000);
+
+  function ls(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
+
+  // ================= Quiz =================
+  const P={
+    anaar:{name:"Anaar",dev:"अनार",color:"#D6246E",vibe:"Entry level: wind machine + slow motion",line:"You don't arrive, you erupt. The party officially starts when you walk in, and the dance floor is yours by 1 pm.",song:"Kala Chashma",film:"Baar Baar Dekho"},
+    chakri:{name:"Chakri",dev:"चकरी",color:"#1E7F5C",vibe:"Entry level: hugs everyone at the door",line:"Non-stop, full spin, zero chill. You're the reason the energy never drops.",song:"Gallan Goodiyaan",film:"Dil Dhadakne Do"},
+    rocket:{name:"Rocket",dev:"रॉकेट",color:"#33408F",vibe:"Entry level: already planning the after-party",line:"Big plans, bigger energy. You've got the group trip booked and the antakshari bracket ready.",song:"Apna Time Aayega",film:"Gully Boy"},
+    phuljhadi:{name:"Phuljhadi",dev:"फुलझड़ी",color:"#E07A00",vibe:"Entry level: glowing, no effort required",line:"Warm, golden and sparkly. Everyone wants a photo with you, and your chats are the best part of their day.",song:"Kajra Re",film:"Bunty Aur Babli"}
+  };
+  const ORDER=["anaar","chakri","rocket","phuljhadi"];
+  const Q=[
+    {q:"You walk into a party where you know exactly one person. You…",o:[
+      ["Make an entry so loud the whole terrace turns around","anaar"],
+      ["Lose that one person in five minutes because you're busy making new friends","chakri"],
+      ["Already asked Shivani for the guest list","rocket"],
+      ["Find the quietest person there and become best friends","phuljhadi"]]},
+    {q:"Your role in the friends' group chat?",o:[
+      ["Voice notes. All caps. Forty-seven emojis.","anaar"],
+      ["Adds a new person to the group every single week","chakri"],
+      ["Makes the polls, the plans and the Google Sheet","rocket"],
+      ["Checks in on whoever's gone quiet","phuljhadi"]]},
+    {q:"Pick your filmy dialogue.",o:[
+      ["“Main apni favourite hoon!”","anaar"],
+      ["“All is well!”","chakri"],
+      ["“Picture abhi baaki hai, mere dost.”","rocket"],
+      ["“Bade bade deshon mein aisi chhoti chhoti baatein…”","phuljhadi"]]},
+    {q:"Someone hands you the mic at your best friend's sangeet. You…",o:[
+      ["Go “Ek, do, teen…” and do the full Madhuri","anaar"],
+      ["Give a shout-out to every single person in the room","chakri"],
+      ["Give a speech with three points and a call to action","rocket"],
+      ["Make a toast so sweet the whole room tears up","phuljhadi"]]},
+    {q:"The lights go out mid-party. You…",o:[
+      ["Switch on your phone torch and keep dancing","anaar"],
+      ["Use the dark to go meet the next table","chakri"],
+      ["Have already found the inverter and called the electrician","rocket"],
+      ["Light the diyas, and suddenly it's the best moment of the day","phuljhadi"]]},
+    {q:"There's one kaju katli left on the plate. You…",o:[
+      ["Grab it, shout “MINE!” and finish it in one bite","anaar"],
+      ["Cut it into eight pieces so everyone gets some","chakri"],
+      ["Already ate it. You planned ahead.","rocket"],
+      ["Offer it to the friend who's been eyeing it all afternoon","phuljhadi"]]}
+  ];
+  const quiz=document.getElementById("quiz");
+  let step=0, answers=[], myP=ls("ydhd_patakha"); if(!P[myP]) myP=null;
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const songUrl=p=>"https://www.youtube.com/results?search_query="+encodeURIComponent(p.song+" "+p.film+" song");
+  function renderStart(){
+    quiz.innerHTML='<div class="startq"><div class="label" style="color:var(--pink-deep)">6 questions · 1 minute</div><button class="bigbtn" id="qs">Start the quiz</button></div>';
+    qs.onclick=()=>{ step=0; answers=[]; renderQ(); };
+  }
+  function renderQ(){
+    const it=Q[step];
+    quiz.innerHTML='<div class="progress" aria-hidden="true">'+Q.map((_,i)=>'<i class="'+(i<=step?"on":"")+'"></i>').join("")+'</div>'+
+      '<div class="label" style="color:var(--pink-deep)">Reel '+(step+1)+' of '+Q.length+'</div><div class="q">'+esc(it.q)+'</div>'+
+      '<div class="opts">'+it.o.map((o,i)=>'<button class="opt" data-i="'+i+'">'+esc(o[0])+'</button>').join("")+'</div>';
+    quiz.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ answers.push(it.o[+b.dataset.i][1]); if(++step<Q.length) renderQ(); else finish(); });
+    const f=quiz.querySelector(".opt"); if(f) f.focus({preventScroll:true});
+  }
+  function finish(){
+    const c={}; answers.forEach(k=>c[k]=(c[k]||0)+1);
+    const top=Math.max(...ORDER.map(k=>c[k]||0)); const tied=ORDER.filter(k=>(c[k]||0)===top);
+    let best=tied[0]; for(let i=answers.length-1;i>=0;i--){ if(tied.includes(answers[i])){ best=answers[i]; break; } }
+    const last={}; answers.forEach((k,i)=>last[k]=i);
+    const prefs=ORDER.slice().sort((a,b)=>((c[b]||0)-(c[a]||0))||((last[b]??-1)-(last[a]??-1)));
+    prefs.splice(prefs.indexOf(best),1); prefs.unshift(best);
+    myP=best; ls("ydhd_patakha",best); ls("ydhd_prefs",JSON.stringify(prefs)); renderResult(); updateLine();
+  }
+  function renderResult(){
+    const p=P[myP];
+    quiz.innerHTML='<div class="result"><div class="badge" style="background:'+p.color+'"><div class="label" style="color:var(--sun-2)">Your patakha</div><div class="big">'+esc(p.name)+'</div><div class="dev">'+p.dev+'</div><div class="vibe">'+esc(p.vibe)+'</div></div>'+
+      '<div class="song"><span class="label" style="color:var(--sun-2)">Your entry song</span><a href="'+songUrl(p)+'" target="_blank" rel="noopener">▶ '+esc(p.song)+'</a><span>'+esc(p.film)+'</span></div>'+
+      '<div class="row"><button class="bigbtn" id="toRsvp">Confirm I\'m coming</button><button class="ghost" id="copyRes">Copy my result</button><button class="ghost" id="retake">Retake</button></div><div id="copyOut" class="note" hidden></div></div>';
+    toRsvp.onclick=()=>{ rsvpSec.scrollIntoView({behavior:"smooth"}); setTimeout(()=>gname.focus({preventScroll:true}),450); };
+    retake.onclick=()=>{ step=0; answers=[]; renderQ(); };
+    copyRes.onclick=()=>copyText("I'm a "+p.name+" "+p.dev+" for Yeh Diwali Hai Deewani! 🪔 Entry song: "+p.song+". Which patakha are you?",copyOut);
+  }
+  function copyText(t,out){
+    const fallback=()=>{ out.hidden=false; out.innerHTML='<div class="copybox"></div>'; out.firstChild.textContent=t; };
+    try{ navigator.clipboard.writeText(t).then(()=>{ out.hidden=false; out.textContent="Copied. Paste it in the group chat."; },fallback); }catch(e){ fallback(); }
+  }
+  myP?renderResult():renderStart();
+
+  // ================= RSVP =================
+  const form=document.getElementById("rsvp");
+  function updateLine(){ if(!myP) return; const p=P[myP]; patakhaLine.innerHTML='Your patakha: <span class="pill" style="background:'+p.color+'">'+esc(p.name)+'</span>'; }
+  updateLine();
+  const saved=ls("ydhd_name"); if(saved) gname.value=saved;
+
+  let db=null, me=null;
+  (async()=>{ try{
+    if(!window.claude||!window.claude.use) return;
+    const [d,u]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);
+    db=d; if(u){ try{ me=await u.id(); }catch(e){} }
+  }catch(e){} })();
+
+  const val=n=>{ const x=form.querySelector('input[name="'+n+'"]:checked'); return x?x.value:""; };
+  form.addEventListener("submit",async e=>{
+    e.preventDefault(); formErr.hidden=true;
+    const name=gname.value.trim();
+    if(!name){ formErr.hidden=false; formErr.textContent="Add your name so Shivsbee knows who's coming."; gname.focus(); return; }
+    ls("ydhd_name",name);
+    const rec={name:name.slice(0,60),status:val("status"),patakha:myP||"",at:Date.now()};
+    rsvpBtn.disabled=true; rsvpBtn.textContent="Sending…";
+    let ok=false, team=null;
+    const S=window.YDHD_SUPA;
+    if(S){
+      try{
+        let dev=ls("ydhd_device"); if(!dev){ dev=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():("d"+Date.now()+Math.random().toString(36).slice(2)); ls("ydhd_device",dev); }
+        let prefs=[]; try{ prefs=JSON.parse(ls("ydhd_prefs")||"[]"); }catch(_){}
+        const r=await fetch(S.url+"/rest/v1/rpc/diwali_rsvp",{method:"POST",headers:{"Content-Type":"application/json",apikey:S.key,Authorization:"Bearer "+S.key},
+          body:JSON.stringify({p_device:dev,p_name:rec.name,p_status:rec.status,p_quiz:myP||null,p_prefs:prefs})});
+        if(r.ok){ const j=await r.json(); team=j&&j.team||null; ok=true; }
+      }catch(err){}
+    } else if(db&&me){ try{ await db.collection("rsvps").doc(me).set(rec); ok=true; }catch(err){} }
+    showDone(rec,ok,team);
+  });
+  function showDone(rec,ok,team){
+    const p=P[rec.patakha], st={yes:"Pakka!",maybe:"Shayad",no:"Agli baar"}[rec.status];
+    const msg="RSVP for Yeh Diwali Hai Deewani 🪔\nSat 7 Nov, 12:30 pm onwards · Balaji Enclave, 8 Sunny Park\nName: "+rec.name+"\nComing: "+st+(p?"\nTeam: "+p.name:"");
+    let h='<div class="done"><h3>'+(rec.status==="no"?"Agli baar pakka. We'll miss you!":"See you soon on the terrace!")+'</h3>';
+    const T=team&&P[team];
+    h+= ok ? (T ? '<p style="margin:0 0 6px">Your team for the games:</p><div class="badge" style="background:'+T.color+';padding:12px"><div class="big" style="font-size:44px">Team '+esc(T.name)+'</div><div class="dev">'+T.dev+'</div></div>'+(p&&team!==rec.patakha?'<p class="note" style="margin:10px 0 0">Your quiz said '+esc(p.name)+', but Team '+esc(T.name)+' needed you to keep the teams even!</p>':'')+'<p class="note" style="margin:10px 0 0">You can change your RSVP any time from here.</p>'
+                : '<p style="margin:0">Your RSVP is saved. You can change it any time from here.</p>')
+           : '<p style="margin:0">Last step: send this to Shivsbee on WhatsApp so she has your RSVP.</p><div class="copybox" id="msgBox"></div><div class="row" style="justify-content:flex-start"><a class="bigbtn" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(msg)+'">Open WhatsApp</a><button class="ghost" id="copyMsg">Copy text</button></div><div id="copyMsgOut" class="note" hidden></div>';
+    h+='<div class="row" style="justify-content:flex-start"><button class="ghost" id="editR">Edit RSVP</button></div></div>';
+    rsvpBox.innerHTML=h;
+    const mb=document.getElementById("msgBox"); if(mb) mb.textContent=msg;
+    const cm=document.getElementById("copyMsg"); if(cm) cm.onclick=()=>copyText(msg,copyMsgOut);
+    editR.onclick=()=>location.reload();
+  }
+
+})();
+</script>
+
+</body></html>
